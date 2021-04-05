@@ -1,3 +1,79 @@
-.App {
+@font-face {
+  font-family: "Moon Light";
+  src: url(./fonts/Moon\ Light.otf);
+}
+@font-face {
+  font-family: "Moon Bold";
+  src: url(./fonts/Moon\ Bold.otf);
+}
+
+* {
+  font-family: "Moon Light";
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.grid-container {
+  border-radius: 10px;
+  padding: 25px;
+  height: 75vh;
+  width: 75vw;
+}
+
+.form-container {
+  display: flex;
+  height: 100%;
+}
+
+.title-container {
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inner-container {
+  display: flex;
+  height: 90%;
+}
+
+.form {
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px;
+}
+.text-field input {
+  font-family: "Moon Bold";
+  font-size: large;
+}
+#calculate-btn {
+  align-self: center;
+}
+.payment {
+  width: 50%;
+  padding: 30px;
+  text-align: center;
+}
+.payment-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.calc-item {
+  width: calc((100% / 3) * 2);
+}
+.tips-item {
+  width: calc(100% / 3);
+  padding: 30px;
   text-align: center;
 }

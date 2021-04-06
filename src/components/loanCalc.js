@@ -61,7 +61,7 @@ export default function LoanCalc() {
   }
 
   const invalidYearsHandle = () => {
-    if (loanYears < 1 || loanYears > 40) {
+    if (loanYears <= 0 || loanYears > 40) {
       return true
     } else {
       return false
@@ -86,7 +86,7 @@ export default function LoanCalc() {
 
   return (
     <div className="form-container">
-      <form onSubmit={onCalculate} className="form">
+      <form onSubmit={onCalculate}>
         <TextField
           className="text-field"
           type="number"

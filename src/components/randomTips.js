@@ -15,7 +15,7 @@ export default function RandomTips() {
   }
 
   return (
-    <div>
+    <div className="tips">
       <h2>{tips[randomNum]}</h2>
       <Button onClick={randomInt} color="primary" variant="contained">
         →

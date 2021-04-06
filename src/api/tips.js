@@ -1,5 +1,5 @@
 export const tips = [
-  "Every year, millions of Americans use loans to purchase their first home, consolidate debt, pay for unexpected expenses, buy a vehicle and much more.",
+  "Loans can be used to purchase a home, consolidate debt, pay for unexpected expenses, buy a vehicle and much more.",
   "Financial service companies such as Fig Tech offer emergency loans and financial stability products to help low income families.",
   "Always compare lenders, not all banks will offer you the same rates.",
   "Pay off finance loans as fast as you can, this will cut down the amount of interest paid.",

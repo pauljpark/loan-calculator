@@ -7,7 +7,7 @@ export default function App() {
     <div className="container">
       <div className="grid-container">
         <div className="title-container">
-          <h2>The Loan Calculator</h2>
+          <h1>The Loan Calculator</h1>
         </div>
         <div className="inner-container">
           <div className="calc-item">

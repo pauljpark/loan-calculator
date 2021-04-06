@@ -5,6 +5,7 @@ import MonthlyPay from "./monthlyPay"
 import TextField from "@material-ui/core/TextField"
 import Button from "@material-ui/core/Button"
 import InputAdornment from "@material-ui/core/InputAdornment"
+import { ToggleContext } from "../context"
 
 export default function LoanCalc() {
   const [principal, setPrincipal] = useState(5000)
@@ -85,88 +86,100 @@ export default function LoanCalc() {
   }
 
   return (
-    <div className="form-container">
-      <form onSubmit={onCalculate}>
-        <TextField
-          className="text-field"
-          type="number"
-          onKeyDown={preventChars}
-          onChange={onChangePrincipal}
-          value={principal}
-          label={invalidPrinHandle() ? "Error" : "Loan amount"}
-          variant="standard"
-          InputProps={{
-            startAdornment: <InputAdornment position="start">$</InputAdornment>,
-          }}
-          error={invalidPrinHandle()}
-          helperText={invalidPrinHandle() ? "Invalid loan amt" : false}
-        />
-        <br />
-        <TextField
-          className="text-field"
-          type="number"
-          onKeyDown={preventChars}
-          onChange={onChangeLoanYears}
-          value={loanYears}
-          label={invalidYearsHandle() ? "Error" : "Loan term in years"}
-          variant="standard"
-          color="primary"
-          error={invalidYearsHandle()}
-          helperText={invalidYearsHandle() ? "Invalid loan term" : false}
-        />
-        <br />
-        <TextField
-          className="text-field"
-          type="number"
-          onKeyDown={preventChars}
-          onChange={onChangeLoanMonths}
-          value={loanMonths}
-          label={invalidMonthsHandle() ? "Error" : "Loan term in months"}
-          variant="standard"
-          error={invalidMonthsHandle()}
-          helperText={invalidMonthsHandle() ? "Invalid loan term" : false}
-        />
-        <br />
-        <TextField
-          className="text-field"
-          type="number"
-          onKeyDown={preventChars}
-          onChange={onChangeYearlyInt}
-          value={yearlyInt}
-          label={invalidIntHandle() ? "Error" : "Interest rate per year"}
-          variant="standard"
-          InputProps={{
-            endAdornment: <InputAdornment position="end">%</InputAdornment>,
-          }}
-          error={invalidIntHandle()}
-          helperText={invalidIntHandle() ? "Invalid interest rate" : false}
-        />
-        <br />
-        <Button
-          id="calculate-btn"
-          color="primary"
-          variant="contained"
-          type="submit"
-          disabled={
-            invalidPrinHandle() ||
-            invalidMonthsHandle() ||
-            invalidYearsHandle() ||
-            invalidIntHandle()
-              ? true
-              : false
-          }
-        >
-          Calculate
-        </Button>
-      </form>
-      <div className="line-1"></div>
-      <div className="payment">
-        <MonthlyPay
-          totalMonthPay={monthlyPay}
-          principal={totalPrinPaid}
-          interest={totalIntPaid}
-        />
-      </div>
-    </div>
+    <ToggleContext.Consumer>
+      {(context) => {
+        return (
+          <div className="form-container">
+            <form onSubmit={onCalculate}>
+              <TextField
+                className="text-field"
+                type="number"
+                onKeyDown={preventChars}
+                onChange={onChangePrincipal}
+                value={principal}
+                label={invalidPrinHandle() ? "Error" : "Loan amount"}
+                variant="standard"
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">$</InputAdornment>
+                  ),
+                }}
+                error={invalidPrinHandle()}
+                helperText={invalidPrinHandle() ? "Invalid loan amt" : false}
+              />
+              <br />
+              <TextField
+                className="text-field"
+                type="number"
+                onKeyDown={preventChars}
+                onChange={onChangeLoanYears}
+                value={loanYears}
+                label={invalidYearsHandle() ? "Error" : "Loan term in years"}
+                variant="standard"
+                color="primary"
+                error={invalidYearsHandle()}
+                helperText={invalidYearsHandle() ? "Invalid loan term" : false}
+              />
+              <br />
+              <TextField
+                className="text-field"
+                type="number"
+                onKeyDown={preventChars}
+                onChange={onChangeLoanMonths}
+                value={loanMonths}
+                label={invalidMonthsHandle() ? "Error" : "Loan term in months"}
+                variant="standard"
+                error={invalidMonthsHandle()}
+                helperText={invalidMonthsHandle() ? "Invalid loan term" : false}
+              />
+              <br />
+              <TextField
+                className="text-field"
+                type="number"
+                onKeyDown={preventChars}
+                onChange={onChangeYearlyInt}
+                value={yearlyInt}
+                label={invalidIntHandle() ? "Error" : "Interest rate per year"}
+                variant="standard"
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">%</InputAdornment>
+                  ),
+                }}
+                error={invalidIntHandle()}
+                helperText={
+                  invalidIntHandle() ? "Invalid interest rate" : false
+                }
+              />
+              <br />
+              <Button
+                id="calculate-btn"
+                color={context.toggle ? "primary" : "red"}
+                variant="contained"
+                type="submit"
+                disabled={
+                  invalidPrinHandle() ||
+                  invalidMonthsHandle() ||
+                  invalidYearsHandle() ||
+                  invalidIntHandle()
+                    ? true
+                    : false
+                }
+              >
+                Calculate
+              </Button>
+            </form>
+            <div className="line-1"></div>
+            <div className="payment">
+              <MonthlyPay
+                totalMonthPay={monthlyPay}
+                principal={totalPrinPaid}
+                interest={totalIntPaid}
+              />
+            </div>
+          </div>
+        )
+      }}
+    </ToggleContext.Consumer>
   )
 }

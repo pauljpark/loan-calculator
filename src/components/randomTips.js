@@ -2,6 +2,7 @@ import React from "react"
 import { tips } from "../api/tips"
 import { useState } from "react"
 import Button from "@material-ui/core/Button"
+import { ToggleContext } from "../context"
 
 export default function RandomTips() {
   const [randomNum, setRandomNum] = useState(0)
@@ -15,11 +16,21 @@ export default function RandomTips() {
   }
 
   return (
-    <div className="tips">
-      <h2>{tips[randomNum]}</h2>
-      <Button onClick={randomInt} color="primary" variant="contained">
-        →
-      </Button>
-    </div>
+    <ToggleContext.Consumer>
+      {(context) => {
+        return (
+          <div className="tips">
+            <h2>{tips[randomNum]}</h2>
+            <Button
+              onClick={randomInt}
+              color={context.toggle ? "primary" : "red"}
+              variant="contained"
+            >
+              →
+            </Button>
+          </div>
+        )
+      }}
+    </ToggleContext.Consumer>
   )
 }

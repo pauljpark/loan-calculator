@@ -20,24 +20,20 @@ export default function LoanCalc() {
 
   const onChangePrincipal = (e) => {
     setPrincipal(e.target.value)
-    console.log(e.target.value)
   }
 
   const onChangeLoanYears = (e) => {
     setLoanYears(e.target.value)
     setLoanMonths(e.target.value * 12)
-    console.log(e.target.value)
   }
 
   const onChangeLoanMonths = (e) => {
     setLoanMonths(e.target.value)
     setLoanYears(e.target.value / 12)
-    console.log(e.target.value)
   }
 
   const onChangeYearlyInt = (e) => {
     setYearlyInt(e.target.value)
-    console.log(e.target.value)
   }
 
   const onCalculate = (e) => {

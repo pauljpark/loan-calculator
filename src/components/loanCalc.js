@@ -159,6 +159,7 @@ export default function LoanCalc() {
           Calculate
         </Button>
       </form>
+      <div className="line-1"></div>
       <div className="payment">
         <MonthlyPay
           totalMonthPay={monthlyPay}

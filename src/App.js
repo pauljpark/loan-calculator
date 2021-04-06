@@ -5,6 +5,9 @@ import RandomTips from "./components/randomTips"
 export default function App() {
   return (
     <div className="container">
+      <video loop autoPlay muted id="video">
+        <source src="https://qu.ax/SD3.mp4" type="video/mp4" />
+      </video>
       <div className="grid-container">
         <div className="title-container">
           <h1>The Loan Calculator</h1>
@@ -13,6 +16,7 @@ export default function App() {
           <div className="calc-item">
             <LoanCalc />
           </div>
+          <div className="line-2"></div>
           <div className="tips-item">
             <RandomTips />
           </div>

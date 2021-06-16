@@ -14,7 +14,7 @@ export default function App() {
     <ToggleContext.Provider value={{ toggle: state }}>
       <div className="container">
         <video loop autoPlay muted id="video">
-          <source src="https://qu.ax/SD3.mp4" type="video/mp4" />
+          <source src="https://qu.ax/4KB.mp4" type="video/mp4" />
         </video>
         <div
           className="grid-container"

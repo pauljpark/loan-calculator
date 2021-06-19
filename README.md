@@ -1,4 +1,4 @@
-## Live demo here: https://loan-calc-paulpark.netlify.app/
+## Live demo here: https://loan-calculator1.netlify.app/
 
 # Getting Started with Create React App
 

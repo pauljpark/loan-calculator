@@ -8,7 +8,7 @@ export default function RandomTips() {
   const [randomNum, setRandomNum] = useState(0)
 
   const randomInt = () => {
-    if (randomNum === 5) {
+    if (randomNum === 4) {
       setRandomNum(0)
     } else {
       setRandomNum(randomNum + 1)
